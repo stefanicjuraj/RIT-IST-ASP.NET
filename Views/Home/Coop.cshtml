@@ -1,0 +1,55 @@
+﻿@model CoopViewModel
+@*header*@
+<div class="text-center mt-20 mb-20">
+    <h1 class="text-5xl font-bold">Explore <span class="orange">Coop</span> table</h1>
+</div>
+@if (Model.CoopTable?.CoopInformation is not null)
+{
+    <div class="mt-10 mb-20">
+        <table id="coopTable" class="table">
+            <thead>
+                <tr>
+                    <th>Employer</th>
+                    <th>Degree</th>
+                    <th>City</th>
+                    <th>Term</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var news in Model.CoopTable.CoopInformation)
+                {
+                    <tr>
+                        <td>@news.Employer</td>
+                        <td>@news.Degree</td>
+                        <td>@news.City</td>
+                        <td>@news.Term</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <section class="text-center mt-20 mb-20" id="section-button"></section>
+}
+else
+{
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <h4>No data returned for news endpoint</h4>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script>$(document).ready(function () {
+            $('#coopTable').DataTable({
+                retrieve: true,
+                paging: true,
+            });
+        });</script>
+    <script>var $button = $('<a>', {
+            href: '#'
+        });
+        $button.addClass('ui-button ui-widget ui-corner-all');
+        $button.text('Back to top');
+        $button.appendTo('#section-button');</script>
+}

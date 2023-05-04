@@ -1,0 +1,41 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+*/
+
+.orange {
+    color: #F76902;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: #eee;
+    background: #F76902;
+}
+
+.ui-button {
+    background-color: #f76902 !important; /* set background color */
+    color: #fff !important; /* set text color */
+    border-radius: 24px !important; /* set border radius */
+    border: none !important; /* remove border */
+    padding: 12px 20px !important; /* set padding */
+    font-size: 16px !important; /* set font size */
+    cursor: pointer !important; /* set cursor to pointer */
+    text-decoration: none !important; /* remove underline */
+    display: inline-block !important; /* set display to inline-block */
+    text-align: center !important; /* set text alignment to center */
+}

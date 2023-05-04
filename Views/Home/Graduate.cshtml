@@ -1,0 +1,40 @@
+﻿@model GraduateViewModel
+
+@if (Model.Graduate is not null)
+{
+    @*header*@
+    <div class="text-center mt-20 mb-20">
+        <h1 class="text-5xl font-bold">Explore <span class="orange">Graduate</span> degrees</h1>
+    </div>
+
+    @foreach (var degrees in Model.Graduate)
+    {
+        <div class="max-w-lg mt-10 mb-10 mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-school" width="64" height="64" viewBox="0 0 24 24" stroke-width="2" stroke="#F76902" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+                <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
+            </svg>
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">@degrees.Title</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">@degrees.Description</p>
+        </div>
+    }
+    <section class="text-center mt-20 mb-20" id="section-button"></section>
+}
+else
+{
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <h4>No data returned for news endpoint</h4>
+    </div>
+}
+
+@section Scripts {
+    <script>var $button = $('<a>', {
+            href: '#'
+        });
+        $button.addClass('ui-button ui-widget ui-corner-all');
+        $button.text('Back to top');
+        $button.appendTo('#section-button');</script>
+}

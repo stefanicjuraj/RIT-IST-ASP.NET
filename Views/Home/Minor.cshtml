@@ -1,0 +1,41 @@
+﻿@model MinorViewModel
+@*header*@
+<div class="text-center mt-20 mb-20">
+    <h1 class="text-5xl font-bold">Explore <span class="orange">Minor</span> degrees</h1>
+</div>
+@if (Model.UgMinor is not null)
+{
+    <div class="mt-10 mb-20 max-w-screen-md mx-auto" id="accordion-news">
+        @foreach (var news in Model.UgMinor)
+        {
+
+            <h3><b>@news.Name: </b>@news.Title</h3>
+            <div>
+                <p>
+                    @news.Description
+                </p>
+            </div>
+        }
+    </div>
+    <section class="text-center mt-20 mb-20" id="section-button"></section>
+}
+else
+{
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <h4>No data returned for news endpoint</h4>
+    </div>
+}
+
+@section Scripts {
+    <script>$("#accordion-news").accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });</script>
+
+    <script>var $button = $('<a>', {
+            href: '#'
+        });
+        $button.addClass('ui-button ui-widget ui-corner-all');
+        $button.text('Back to top');
+        $button.appendTo('#section-button');</script>
+}

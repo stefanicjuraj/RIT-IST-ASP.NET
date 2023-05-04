@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model AboutViewModel
+
+@if (Model.About is not null)
+{
+    @foreach (var news in Model.About)
+    {
+        <div class="mx-auto text-center mt-20 mb-20">
+            <h1 class="text-5xl font-extrabold">@news.Title</h1>
+        </div>
+        <div class="w-2/3 mx-auto mt-10 mt-10 mb-10 bg-gray-50 p-5 rounded-lg">
+            <h2>@news.Description</h2>
+        </div>
+        <figure class="max-w-screen-md mx-auto text-center mt-20 mb-20">
+            <img class="w-16 mx-auto text-center orange" src="../../assets/media/quote.svg" />
+            <blockquote>
+                <p class="text-1xl italic font-medium p-5 bg-gray-100 rounded-lg text-gray-900">
+                    @news.Quote
+                </p>
+            </blockquote>
+            <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                <div class="flex items-center divide-x-2 divide-gray-500">
+                    <cite class="pr-3 text-gray-900">— @news.QuoteAuthor</cite>
+                </div>
+            </figcaption>
+        </figure>
+    }
+    <section class="text-center mt-20 mb-20" id="section-button"></section>
+}
+else
+{
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <h4>No data returned for news endpoint</h4>
+    </div>
+}
+
+@section Scripts {
+    <script>var $button = $('<a>', {
+            href: '#'
+        });
+        $button.addClass('ui-button ui-widget ui-corner-all');
+        $button.text('Back to top');
+        $button.appendTo('#section-button');</script>
+}
